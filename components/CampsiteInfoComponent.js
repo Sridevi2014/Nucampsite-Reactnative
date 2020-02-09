@@ -5,14 +5,14 @@ import { CAMPSITES } from '../shared/campsites';
 import { COMMENTS } from '../shared/comments';
 
 //RenderComment function
-function RenderComments({comments}) {
+function RenderComments({ comments }) {
 
-    const renderCommentItem = ({item}) => {
+    const renderCommentItem = ({ item }) => {
         return (
-            <View style={{margin: 10}}>
-                <Text style={{fontSize: 14}}>{item.text}</Text>
-                <Text style={{fontSize: 12}}>{item.rating} Stars</Text>
-                <Text style={{fontSize: 12}}>{`-- ${item.author}, ${item.date}`}</Text>
+            <View style={{ margin: 10 }}>
+                <Text style={{ fontSize: 14 }}>{item.text}</Text>
+                <Text style={{ fontSize: 12 }}>{item.rating} Stars</Text>
+                <Text style={{ fontSize: 12 }}>{`-- ${item.author}, ${item.date}`}</Text>
             </View>
         );
     };
@@ -29,16 +29,16 @@ function RenderComments({comments}) {
 }
 
 //RenderCampsite function
-function RenderCampsite(props) {  
+function RenderCampsite(props) {
 
-    const {campsite} = props;
+    const { campsite } = props;
 
     if (campsite) {
         return (
             <Card
                 featuredTitle={campsite.name}
                 image={require('./images/react-lake.jpg')}>
-                <Text style={{margin: 10}}>
+                <Text style={{ margin: 10 }}>
                     {campsite.description}
                 </Text>
                 <Icon
@@ -47,8 +47,8 @@ function RenderCampsite(props) {
                     color='#f50'
                     raised
                     reverse
-                    onPress={() => props.favorite ? 
-                                console.log('Already set as a favorite') : props.markFavorite()}
+                    onPress={() => props.favorite ?
+                        console.log('Already set as a favorite') : props.markFavorite()}
                 />
             </Card>
         );
@@ -73,7 +73,7 @@ class CampsiteInfo extends Component {
     };
 
     markFavorite() {
-        this.setState({favorite: true});
+        this.setState({ favorite: true });
     }
 
     render() {
@@ -83,14 +83,14 @@ class CampsiteInfo extends Component {
 
         return (
             <ScrollView>
-               <RenderCampsite campsite={campsite}
+                <RenderCampsite campsite={campsite}
                     favorite={this.state.favorite}
                     markFavorite={() => this.markFavorite()}
                 />
                 <RenderComments comments={comments} />
             </ScrollView>
         );
-       
+
     }
 }
 
