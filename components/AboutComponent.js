@@ -3,7 +3,7 @@ import {  Text, ScrollView, FlatList} from 'react-native';
 import { Card, ListItem } from 'react-native-elements';
 import { PARTNERS} from '../shared/partners';
 
-//task3
+
  function Mission() {   
         return (
             <Card title='Our Mission'>
@@ -15,7 +15,6 @@ import { PARTNERS} from '../shared/partners';
    
 } 
 
-//task1 n task 2
 class About extends Component {
 
       //constructor
@@ -26,11 +25,11 @@ class About extends Component {
         };
     } 
 
-//navgation options, you click on this link sidebar
+//navigation options, you click on this link sidebar
    static navigationOptions = {
     title: 'About'
 } 
-    //task3
+    
     render() 
     {     
         const renderPartner = ({item}) => {
@@ -43,7 +42,6 @@ class About extends Component {
                 );
             };
 
-        //task3
         return (
             <ScrollView>
             <Mission />

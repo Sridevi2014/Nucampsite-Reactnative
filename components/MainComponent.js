@@ -7,7 +7,7 @@ import Contact from './ContactComponent';
 import { View, Platform  } from 'react-native';
 import { createStackNavigator, createDrawerNavigator } from 'react-navigation';
 
-
+//DirectoryNavigator
 const DirectoryNavigator = createStackNavigator(
     {
         Directory: { screen: Directory },
@@ -27,7 +27,7 @@ const DirectoryNavigator = createStackNavigator(
     }
 );
 
-
+//HomeNavigator
 const HomeNavigator = createStackNavigator(
     {
         Home: { screen: Home }
@@ -45,7 +45,7 @@ const HomeNavigator = createStackNavigator(
     }
 );
 
-//AboutNavigator //task 1
+//AboutNavigator 
  const AboutNavigator = createStackNavigator(
     {
         About: { screen: About }
@@ -63,7 +63,7 @@ const HomeNavigator = createStackNavigator(
     }
 ); 
  
- //ContactNavegator //task1
+ //ContactNavigator
  const ContactNavigator = createStackNavigator(
     {
         Contact: { screen: Contact }
@@ -81,6 +81,7 @@ const HomeNavigator = createStackNavigator(
     }
 ); 
  
+//mainNavigator
 const MainNavigator = createDrawerNavigator(
     {
         Home: { screen: HomeNavigator },
