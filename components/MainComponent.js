@@ -236,4 +236,6 @@ const styles = StyleSheet.create({
     }
 });
 
+console.disableYellowBox = true;
+
 export default Main;
