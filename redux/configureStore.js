@@ -1,6 +1,6 @@
 import {createStore, combineReducers, applyMiddleware} from 'redux';
-import thunk from './node_modules/redux-thunk';
-import logger from './node_modules/redux-logger';
+import thunk from 'redux-thunk';
+import logger from 'redux-logger';
 import { campsites } from './campsites';
 import { comments } from './comments';
 import { promotions } from './promotions';
