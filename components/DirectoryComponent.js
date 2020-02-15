@@ -17,6 +17,8 @@ const mapStateToProps = state => {
 class Directory extends Component {
 
  
+    
+//navigation options, you click on this link sidebar
     static navigationOptions = {
         title: 'Directory'
     };
@@ -39,6 +41,7 @@ class Directory extends Component {
         if (this.props.campsites.isLoading) {
             return <Loading />;
         }
+
         if (this.props.campsites.errMess) {
             return (
                 <View>
