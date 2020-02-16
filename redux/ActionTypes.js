@@ -22,3 +22,6 @@ export const ADD_FAVORITE = 'ADD_FAVORITE';
 
 // comment Action types
 export const ADD_COMMENT = 'ADD_COMMENT';
+
+//delete Action types
+export const DELETE_FAVORITE = 'DELETE_FAVORITE'; 
