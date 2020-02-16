@@ -4,7 +4,6 @@ export const ADD_CAMPSITES = 'ADD_CAMPSITES';
 export const CAMPSITES_FAILED = 'CAMPSITES_FAILED';
 
 // comments Action types
-export const ADD_COMMENT = 'ADD_COMMENT';
 export const ADD_COMMENTS = 'ADD_COMMENTS';
 export const COMMENTS_FAILED = 'COMMENTS_FAILED';
 
@@ -20,3 +19,6 @@ export const PARTNERS_FAILED = 'PARTNERS_FAILED';
 
 // favorite Action types 
 export const ADD_FAVORITE = 'ADD_FAVORITE';
+
+// comment Action types
+export const ADD_COMMENT = 'ADD_COMMENT';

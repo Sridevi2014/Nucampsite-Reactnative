@@ -159,7 +159,6 @@ export const addFavorite = campsiteId => ({
 });
 
 //comment, addComment, postComment
-
 export const postComment = (campsiteId, rating, author, text) => dispatch => {
     
     const newComment = {
