@@ -15,6 +15,7 @@ const mapStateToProps = state => {
     };
 };
 
+//redux
 const mapDispatchToProps = {
     postFavorite: campsiteId => (postFavorite(campsiteId)),
     postComment: (campsiteId, rating, author, text) => (postComment(campsiteId, rating, author, text))
@@ -34,9 +35,12 @@ function RenderComments({ comments }) {
     };
 
     return (
-        <Animatable.View animation='fadeInUp' duration={2000} delay={1000}>
-        <Card title='Comments'>
-            <FlatList
+        <Animatable.View
+            animation='fadeInUp'
+            duration={2000}
+            delay={1000}>
+            <Card title='Comments'>
+                <FlatList
                 data={comments}
                 renderItem={renderCommentItem}
                 keyExtractor={item => item.id.toString()}
@@ -54,8 +58,10 @@ function RenderCampsite(props) {
     const view = React.createRef();
 
     const recognizeDrag = ({dx}) => (dx < -200) ? true : false;
- 
-    /*PanResponder api -- the PanResponder and two panHandlers, onStartShouldSetPanResponder and onPanResponderEnd, to cause the campsite information Card in the CampsiteInfo component to respond to a drag gesture of more than 200 pixels to the left. */
+
+    const recognizeComment = ({dx}) => (dx > 200) ? true : false;
+
+    /*PanResponder api -- the PanResponder and two panHandlers, onStartShouldSetPanResponder and onPanResponderEnd, to cause the campsite information Card in the CampsiteInfo component to respond to a drag gesture of more than 200 pixels to the left.gestureState=movement of finger */
     const panResponder = PanResponder.create({
         onStartShouldSetPanResponder: () => true,
         onPanResponderGrant: () => {
@@ -86,6 +92,7 @@ function RenderCampsite(props) {
             return true;
         }
     });
+
 
     if (campsite) {
         return (
@@ -140,10 +147,8 @@ class CampsiteInfo extends Component {
             author: '',
             text: '',
             favorite: false,
-            showModal: false,
-            startingValue: '',
-            onFinishRating: ''
-
+            showModal: false
+         
         };
     }
 
@@ -161,10 +166,8 @@ class CampsiteInfo extends Component {
     }
 
     handleComment(campsiteId) {
-       /*  console.log(campsiteId, JSON.stringify(this.state)); */
         this.props.postComment(campsiteId, this.state.rating, this.state.author, this.state.text)
         this.toggleModal();
-
     }
 
     resetForm() {
@@ -173,7 +176,7 @@ class CampsiteInfo extends Component {
             author: '',
             text: '',
             favorite: false,
-            showModal: false
+            showModal: false 
         });
     }
 

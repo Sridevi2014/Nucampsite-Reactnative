@@ -26,10 +26,10 @@ class Favorites extends Component {
         title: 'My Favorites'
     }
 
+     /* Alert API's alert() method to cause an alert dialog to pop up in response to a button being pressed, then to show and configure buttons within the alert dialog to initiate further actions */
     render() {
         const { navigate } = this.props.navigation;
         const renderFavoriteItem = ({item}) => {
-  /* Alert API's alert() method to cause an alert dialog to pop up in response to a button being pressed, then to show and configure buttons within the alert dialog to initiate further actions */
             const rightButton = [
                 {
                     text: 'Delete', 

@@ -7,7 +7,7 @@ import Contact from './ContactComponent';
 import Reservation from './ReservationComponent';
 import Favorites from './FavoritesComponent';
 import { View, Platform, StyleSheet, Text, ScrollView, Image   } from 'react-native';
-import { createStackNavigator, createDrawerNavigator, DrawerItems,  } from 'react-navigation';
+import { createStackNavigator, createDrawerNavigator, DrawerItems  } from 'react-navigation';
 import { Icon } from 'react-native-elements';
 import SafeAreaView from 'react-native-safe-area-view';
 import { connect } from 'react-redux';
