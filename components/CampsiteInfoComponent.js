@@ -89,13 +89,13 @@ function RenderCampsite(props) {
                     { cancelable: false }
                 );
             }
+           /*  Open the campsite comment form in response to a gesture */
             else if (recognizeComment(gestureState)) {
                 props.onshowModal();
               }
             return true;
         }
     });
-
 
     if (campsite) {
         return (
@@ -182,8 +182,6 @@ class CampsiteInfo extends Component {
             showModal: false 
         });
     }
-
- 
 
     render() {
         const campsiteId = this.props.navigation.getParam('campsiteId');

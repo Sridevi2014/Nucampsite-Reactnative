@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Text, View, ScrollView, StyleSheet, Picker, Switch, Button,Alert, Animated } from 'react-native';
-//import { Text, View, StyleSheet, Picker, Switch, Button, Animated } from 'react-native';
 import DatePicker from 'react-native-datepicker';
 import * as Animatable from 'react-native-animatable';
 
@@ -18,7 +17,8 @@ class Reservation extends Component {
             scaleValue: new Animated.Value(0)
         };
     }
-    
+
+
        //animate method
        animate() {
         Animated.timing(
@@ -40,13 +40,26 @@ class Reservation extends Component {
         title: 'Reserve Campsite'
     }
 
-    /*  toggleModal() {
-        this.setState({showModal: !this.state.showModal});
-    }  */
-
     handleReservation() {
-        console.log(JSON.stringify(this.state));
-        this.toggleModal(); 
+
+        const hike = this.state.hikeIn ? 'Yes' : 'No'; 
+
+        Alert.alert(
+            'Begin Search?',
+            'Number of Campers: ' + this.state.campers + '\n Hike-In?: ' + hike + '\n Date: ' + this.state.date,
+            [
+                {
+                    text: 'Cancel',
+                    onPress: () => this.resetForm(),
+                    style: 'cancel'
+                },
+                {
+                    text: 'OK',
+                    onPress: () => this.resetForm(),
+                }
+            ],
+            { cancelable: false }
+        )
     }
 
     resetForm() {
@@ -112,24 +125,8 @@ class Reservation extends Component {
                     />
                 </View>
                 <View style={styles.formRow}>
-          <Button
-              onPress={() => Alert.alert(
-                'Begin Search?',
-                `Number of campers: ${this.state.campers} \nHike-In? ${this.state.hikeIn} \nDate: ${this.state.date}`,
-                [
-                  {
-                    text: 'Cancel',
-                    style: 'cancel',
-                    onPress: () => this.resetForm(),
-                  },
-                  {
-                    text: 'OK',
-                    onPress: () => this.resetForm()
-                  }
-                ],
-                { cancelable: false }
-              )
-            }
+          <Button   
+             onPress={() => this.handleReservation()}
               title='Search'
               color='#5637DD'
               accessibilityLabel='Tap me to search for available campsites to reserve'
