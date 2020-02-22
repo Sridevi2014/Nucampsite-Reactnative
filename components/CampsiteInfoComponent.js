@@ -89,6 +89,9 @@ function RenderCampsite(props) {
                     { cancelable: false }
                 );
             }
+            else if (recognizeComment(gestureState)) {
+                props.onshowModal();
+              }
             return true;
         }
     });
@@ -179,6 +182,8 @@ class CampsiteInfo extends Component {
             showModal: false 
         });
     }
+
+ 
 
     render() {
         const campsiteId = this.props.navigation.getParam('campsiteId');
