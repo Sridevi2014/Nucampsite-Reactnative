@@ -8,6 +8,7 @@
     "eject": "expo eject"
   },
   "dependencies": {
+    "@react-native-community/netinfo": "^3.2.1",
     "expo": "~36.0.0",
     "expo-image-picker": "^7.0.0",
     "expo-mail-composer": "^7.0.0",
