@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View, ScrollView, StyleSheet, Picker, Switch, Button,Alert, Animated } from 'react-native';
+import { Text, View, ScrollView, StyleSheet, Picker, Switch, Button, Alert } from 'react-native';
 import DatePicker from 'react-native-datepicker';
 import * as Animatable from 'react-native-animatable';
 import * as Permissions from 'expo-permissions';
@@ -14,29 +14,11 @@ class Reservation extends Component {
         this.state = {
             campers: 1,
             hikeIn: false,
-            date: '',
-            showModal: false, 
-            scaleValue: new Animated.Value(0)
+            date: ''
+
         };
     }
 
-
-       //animate method
-       animate() {
-        Animated.timing(
-            this.state.scaleValue,
-            {
-                toValue: 1,
-                duration: 1200,
-                delay:600 
-            }
-        ).start();
-    }
-
-    //react life cycle method
-    componentDidMount() {
-        this.animate();
-    }
 
     static navigationOptions = {
         title: 'Reserve Campsite'
@@ -44,7 +26,7 @@ class Reservation extends Component {
 
     handleReservation() {
 
-        const hike = this.state.hikeIn ? 'Yes' : 'No'; 
+        const hike = this.state.hikeIn ? 'Yes' : 'No';
 
         Alert.alert(
             'Begin Search?',
@@ -71,8 +53,8 @@ class Reservation extends Component {
         this.setState({
             campers: 1,
             hikeIn: false,
-            date: '',
-            showModal: false 
+            date: ''
+
         });
     }
 
@@ -101,14 +83,14 @@ class Reservation extends Component {
     render() {
         return (
             <Animatable.View
-            animation="zoomIn" style={{transform: [{scale: this.state.scaleValue}]}}>
-              
+                animation="zoomIn" duration={2000} delay={1000}>
+                {/*  <ScrollView>  */}
                 <View style={styles.formRow}>
                     <Text style={styles.formLabel}>Number of Campers</Text>
                     <Picker
                         style={styles.formItem}
                         selectedValue={this.state.campers}
-                        onValueChange={itemValue => this.setState({campers: itemValue})}>
+                        onValueChange={itemValue => this.setState({ campers: itemValue })}>
                         <Picker.Item label='1' value='1' />
                         <Picker.Item label='2' value='2' />
                         <Picker.Item label='3' value='3' />
@@ -122,14 +104,14 @@ class Reservation extends Component {
                     <Switch
                         style={styles.formItem}
                         value={this.state.hikeIn}
-                        trackColor={{true: '#5637DD', false: null}}
-                        onValueChange={value => this.setState({hikeIn: value})}>
+                        trackColor={{ true: '#5637DD', false: null }}
+                        onValueChange={value => this.setState({ hikeIn: value })}>
                     </Switch>
                 </View>
                 <View style={styles.formRow}>
                     <Text style={styles.formLabel}>Date</Text>
                     <DatePicker
-                        style={{flex: 2, marginRight: 20}}
+                        style={{ flex: 2, marginRight: 20 }}
                         date={this.state.date}
                         format='YYYY-MM-DD'
                         mode='date'
@@ -148,19 +130,20 @@ class Reservation extends Component {
                                 marginLeft: 36
                             }
                         }}
-                        onDateChange={date => {this.setState({date: date})}}
+                        onDateChange={date => { this.setState({ date: date }) }}
                     />
                 </View>
                 <View style={styles.formRow}>
-          <Button   
-             onPress={() => this.handleReservation()}
-              title='Search'
-              color='#5637DD'
-              accessibilityLabel='Tap me to search for available campsites to reserve'
-          />
-        </View>
-      </Animatable.View>
-                       
+                    <Button
+                        onPress={() => this.handleReservation()}
+                        title='Search'
+                        color='#5637DD'
+                        accessibilityLabel='Tap me to search for available campsites to reserve'
+                    />
+                </View>
+                {/* </ScrollView>  */}
+            </Animatable.View>
+
         );
     }
 }
@@ -181,22 +164,6 @@ const styles = StyleSheet.create({
     },
     formItem: {
         flex: 1
-    },
-    modal: { 
-        justifyContent: 'center',
-        margin: 20
-    },
-    modalTitle: {
-        fontSize: 24,
-        fontWeight: 'bold',
-        backgroundColor: '#5637DD',
-        textAlign: 'center',
-        color: '#fff',
-        marginBottom: 20
-    },
-    modalText: {
-        fontSize: 18,
-        margin: 10
     }
 });
 
