@@ -131,26 +131,26 @@ function RenderCampsite(props) {
                         onPress={() => props.favorite ?
                             console.log('Already set as a favorite') : props.markFavorite()}
                     />
-                    <Icon
-                        name='pencil'
-                        type='font-awesome'
-                        color='#5637DD'
-                        raised
-                        reverse
-                        onPress={() => props.onshowModal()}
-                        style={styles.cardItem}
-                    />
-                    <Icon
+                        <Icon
+                            name='pencil'
+                            type='font-awesome'
+                            color='#5637DD'
+                            raised
+                            reverse
+                            onPress={() => props.onshowModal()}
+                            style={styles.cardItem}
+                        />
+                        <Icon
                             name={'share'}
                             type='font-awesome'
                             color='#5637DD'
                             style={styles.cardItem}
                             raised
                             reversed
-                            onPress={() => shareCampsite(campsite.name, campsite.description, baseUrl + campsite.image)} 
+                            onPress={() => shareCampsite(campsite.name, campsite.description, baseUrl + campsite.image)}
                         />
-                </View>
-            </Card>
+                    </View>
+                </Card>
             </Animatable.View>
         );
     }
@@ -170,7 +170,7 @@ class CampsiteInfo extends Component {
             text: '',
             favorite: false,
             showModal: false
-         
+
         };
     }
 
