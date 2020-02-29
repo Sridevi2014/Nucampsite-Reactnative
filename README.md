@@ -17,3 +17,12 @@ Technology: React-Native, Redux, React-Native-elements, React-Navigation, Animat
 
 
 
+
+
+![image](https://user-images.githubusercontent.com/28641604/75615618-b05eeb80-5b0b-11ea-972d-284fb5d705f5.png)
+
+
+
+
+
+
